@@ -11,7 +11,7 @@ public class Database {
 	private final String DB_NAME = "GNumScores.db";
 	private final String DB_LOCATION = "jdbc:sqlite:C:\\Users\\paulb\\OneDrive\\Desktop\\ProjectsDatabases\\" + DB_NAME;
 	private final String TABLE_NAME = "Scores";
-    private final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(id INTEGER PRIMARY KEY NOT NULL," + 
+        private final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(id INTEGER PRIMARY KEY NOT NULL," + 
 	                                    "name TEXT NOT NULL,score INTEGER NOT NULL,"+
 	                                    "maxround INTEGER NOT NULL,datetime TEXT NOT NULL)";
 	private final String INSERT = "INSERT INTO " + TABLE_NAME + " VALUES(";
@@ -119,6 +119,7 @@ public class Database {
 		}
 	}
 	
+	//This method is used to retrieve the last id in consequence to calculate the next one.
 	private void setMaxId() {
 		StringBuilder sb = new StringBuilder(SELECT_MAX_ID);
 		try(Statement statement = conn.createStatement();
